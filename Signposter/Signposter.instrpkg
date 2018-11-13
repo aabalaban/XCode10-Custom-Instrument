@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<package>
+	<id>just.a.sample.Signposter</id>
+	<title>Signposter</title>
+	<owner>
+		<name>Alexander Balaban</name>
+	</owner>
+
+    <!-- Instruments Developer Help: https://help.apple.com/instruments/developer/mac/current/ -->
+    
+    <os-signpost-interval-schema>
+        <id>experiment-signpost-schema</id>
+        <title>Experiment Signpost</title>
+        
+        <subsystem>"just.a.sample"</subsystem>
+        <category>"Experiment"</category>
+        <name>"Timeline"</name>
+        
+        <start-pattern>
+            <message>"Start at " ?ts</message>
+        </start-pattern>
+        <end-pattern>
+            <message>"End at " ?ts ", Duration: " ?duration </message>
+        </end-pattern>
+        
+        <column>
+            <mnemonic>ts-column</mnemonic>
+            <title>Timestamps</title>
+            <type>string</type>
+            <expression>?ts</expression>
+        </column>
+        <column>
+            <mnemonic>duration-column</mnemonic>
+            <title>Duration</title>
+            <type>byte</type>
+            <expression>?duration</expression>
+        </column>
+    </os-signpost-interval-schema>
+
+    <instrument>
+        <id>experiment-instrument</id>
+        <title>Experiment Instrument</title>
+        <category>Behavior</category>
+        <purpose>Signpost Demo</purpose>
+        <icon>Generic</icon>
+        
+        <create-table>
+            <id>experiment-table</id>
+            <schema-ref>experiment-signpost-schema</schema-ref>
+        </create-table>
+        
+        <graph>
+            <title>Graph?</title>
+            <lane>
+                <title>Unique Title</title>
+                <table-ref>experiment-table</table-ref>
+                
+                <plot>
+                    <value-from>duration-column</value-from>
+                </plot>
+            </lane>
+        </graph>
+        <list>
+            <title>Default List</title>
+            <table-ref>experiment-table</table-ref>
+            <column>ts-column</column>
+        </list>
+    </instrument>
+</package>

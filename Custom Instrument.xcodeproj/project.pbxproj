@@ -12,6 +12,7 @@
 		DE772EAE219AECE20053494E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE772EAC219AECE20053494E /* Main.storyboard */; };
 		DE772EB0219AECE50053494E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE772EAF219AECE50053494E /* Assets.xcassets */; };
 		DE772EB3219AECE50053494E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE772EB1219AECE50053494E /* LaunchScreen.storyboard */; };
+		DE772EBF219AF0810053494E /* Signposter.instrpkg in Sources */ = {isa = PBXBuildFile; fileRef = DE772EBE219AF0810053494E /* Signposter.instrpkg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,8 @@
 		DE772EAF219AECE50053494E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DE772EB2219AECE50053494E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE772EB4219AECE50053494E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DE772EBC219AF0810053494E /* Signposter.instrdst */ = {isa = PBXFileReference; explicitFileType = com.apple.instruments.instrdst; includeInIndex = 0; path = Signposter.instrdst; sourceTree = BUILT_PRODUCTS_DIR; };
+		DE772EBE219AF0810053494E /* Signposter.instrpkg */ = {isa = PBXFileReference; lastKnownFileType = "com.apple.instruments.package-definition"; path = Signposter.instrpkg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +42,7 @@
 			isa = PBXGroup;
 			children = (
 				DE772EA7219AECE20053494E /* Custom Instrument */,
+				DE772EBD219AF0810053494E /* Signposter */,
 				DE772EA6219AECE20053494E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				DE772EA5219AECE20053494E /* Custom Instrument.app */,
+				DE772EBC219AF0810053494E /* Signposter.instrdst */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,6 +67,14 @@
 				DE772EB4219AECE50053494E /* Info.plist */,
 			);
 			path = "Custom Instrument";
+			sourceTree = "<group>";
+		};
+		DE772EBD219AF0810053494E /* Signposter */ = {
+			isa = PBXGroup;
+			children = (
+				DE772EBE219AF0810053494E /* Signposter.instrpkg */,
+			);
+			path = Signposter;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -84,6 +97,21 @@
 			productReference = DE772EA5219AECE20053494E /* Custom Instrument.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DE772EBB219AF0810053494E /* Signposter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DE772EC0219AF0810053494E /* Build configuration list for PBXNativeTarget "Signposter" */;
+			buildPhases = (
+				DE772EBA219AF0810053494E /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Signposter;
+			productName = Signposter;
+			productReference = DE772EBC219AF0810053494E /* Signposter.instrdst */;
+			productType = "com.apple.product-type.instruments-package";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -95,6 +123,9 @@
 				ORGANIZATIONNAME = "Alexander Balaban";
 				TargetAttributes = {
 					DE772EA4219AECE20053494E = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					DE772EBB219AF0810053494E = {
 						CreatedOnToolsVersion = 10.1;
 					};
 				};
@@ -113,6 +144,7 @@
 			projectRoot = "";
 			targets = (
 				DE772EA4219AECE20053494E /* Custom Instrument */,
+				DE772EBB219AF0810053494E /* Signposter */,
 			);
 		};
 /* End PBXProject section */
@@ -137,6 +169,14 @@
 			files = (
 				DE772EAB219AECE20053494E /* ViewController.swift in Sources */,
 				DE772EA9219AECE20053494E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE772EBA219AF0810053494E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DE772EBF219AF0810053494E /* Signposter.instrpkg in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +352,28 @@
 			};
 			name = Release;
 		};
+		DE772EC1219AF0810053494E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Instruments/Packages";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "";
+			};
+			name = Debug;
+		};
+		DE772EC2219AF0810053494E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_STYLE = Automatic;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Instruments/Packages";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -329,6 +391,15 @@
 			buildConfigurations = (
 				DE772EB8219AECE50053494E /* Debug */,
 				DE772EB9219AECE50053494E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE772EC0219AF0810053494E /* Build configuration list for PBXNativeTarget "Signposter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE772EC1219AF0810053494E /* Debug */,
+				DE772EC2219AF0810053494E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,20 +1,19 @@
-//
-//  ViewController.swift
-//  Custom Instrument
-//
-//  Created by Alexander Balaban on 13/11/2018.
-//  Copyright © 2018 Alexander Balaban. All rights reserved.
-//
-
 import UIKit
+import os
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    var log: OSLog = OSLog(subsystem: "just.a.sample", category: "Experiment")
+    
+    @IBAction func didTapOnEvent(_ sender: Any) {
+        os_signpost(.event, log: self.log, name: "Event", "Tap at %s", Date().description)
     }
-
-
+    
+    @IBAction func didTapOnRandomTimeline(_ sender: Any) {
+        let signpost = OSSignpostID(log: self.log)
+        os_signpost(.begin, log: self.log, name: "Timeline", signpostID: signpost, "Start at %s", Date().description)
+        let randomDuration = TimeInterval.random(in: 0..<5)
+        DispatchQueue.main.asyncAfter(deadline: .now() + randomDuration) {
+            os_signpost(.end, log: self.log, name: "Timeline", signpostID: signpost, "End at %s, Duration: %f", Date().description, randomDuration)
+        }
+    }
 }
-
